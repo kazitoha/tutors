@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MyController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +17,49 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function ()
+{
+   // roal control
+   Route::any('rule','App\Http\Controllers\BackEnd_Controller\RuleController@view')->name('rule_control');
+   Route::any('rule/edit','App\Http\Controllers\BackEnd_Controller\RuleController@update');
+   // dashboard
+   Route::any('dashboard','App\Http\Controllers\BackEnd_Controller\DashboardController@dashboard');
+
+
+   // tutors
+   Route::get('tutors','App\Http\Controllers\BackEnd_Controller\TutorsController@addTutors');
+
+   Route::post('tutors/insert','App\Http\Controllers\BackEnd_Controller\TutorsController@tutorsInsert');
+
+   Route::get('tutors/list','App\Http\Controllers\BackEnd_Controller\TutorsController@tutorsList');
+   
+   
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+    ///////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
+    ///////////////////////// start user route/////////////////////////
+    ///////////////////////////////////////////////////////////////////
+
+
+                        //home
+   Route::get('/', 'App\Http\Controllers\FontEnd_Controller\HomeController@home');
+
+
+                        // showing error page
+   Route::get('/404', function () { return abort(404); });                     
+
+
+   
+                
+                   
+   
+ 
+
+
+
+
+
+
