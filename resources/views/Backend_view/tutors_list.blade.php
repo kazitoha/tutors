@@ -20,33 +20,35 @@
             <thead>
               <tr>
                 <th>id</th>
-                <th>Category</th>
-                <th>Hadeline</th>
-                <th>Date</th>
+                <th>Name</th>
+                <th>Father Name</th>
+                <th>Mother Name</th>
+                <th>Present Address</th>
+                <th>Permanent Address</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              @forelse($notice_data as $notice_datashow)
+              @forelse($tutors_data as $value)
               <tr>
-                <td>{{$notice_datashow->id}}</td>
-                <td>{{ $notice_datashow->title}}</td>
-                <td>
-                  <textarea>{{ $notice_datashow->description}}</textarea>
-                </td>
-                <td>@if(!$notice_datashow->created_at == null)
-                  {{$notice_datashow->created_at}}@endif</td>
+                <td>{{$value->id}}</td>
+                <td>{{ $value->name }}</td>
+                <td>{{ $value->father_name}}</td>
+                <td>{{ $value->mother_name}}</td>
+                <td>{{ $value->present_address}}</td>
+                <td>{{ $value->permanent_address}}</td>
+                
                 
                 <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
 
                   <!-- notice edit id -->
                   @can('isEdit')
-                  <a href="{{url('notice/edit')}}/{{Crypt::encryptString($notice_datashow->id)}}" type="submit" class="alert alert-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                  <a href="{{url('notice/edit')}}/{{Crypt::encryptString($value->id)}}" type="submit" class="alert alert-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                   @endcan
                   <!-- notice delete id -->
                   @can('isDelete')
-                  <a href="{{url('notice/delete')}}/{{Crypt::encryptString($notice_datashow->id)}}" type="submit" class="alert alert-warning "><i class="fa fa-trash"></i></a>
+                  <a href="{{url('notice/delete')}}/{{Crypt::encryptString($value->id)}}" type="submit" class="alert alert-warning "><i class="fa fa-trash"></i></a>
                   @endcan
                 </div>
                 </td>

@@ -71,10 +71,10 @@ class TutorsController extends Controller
 
 
     // notice list
-    function NoticeList(Request $request)
+    function tutorsList(Request $request)
     {  
-        $notice_data=Notice::all()->sortByDesc("id");
-        return view('Backend_view/notice_list',compact('notice_data'));
+        $tutors_data=tutors::all()->sortByDesc("id");
+        return view('Backend_view/tutors_list',compact('tutors_data'));
     }
     // notice edit
 
