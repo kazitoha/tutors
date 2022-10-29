@@ -62,7 +62,7 @@
   <!-- End Hero Section -->
 
   <main id="main">
-         <section id="search_tutors" class="contact">
+    <section id="search_tutors" class="contact">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -128,9 +128,10 @@
 
       </div>
     </section>
+    
 
 
-    <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Tutors list  ======= -->
     <section id="portfolio" class="portfolio sections-bg">
       <div class="container" data-aos="fade-up">
 
@@ -153,7 +154,7 @@
           <div class="row gy-4 portfolio-container">
 
 
-          @for($i=1; $i<=200; $i++)
+          @for($i=1; $i<=10; $i++)
             
 
 
@@ -197,6 +198,146 @@
 
       </div>
     </section><!-- End Portfolio Section -->
+   <!-- ======= join tutors  ======= -->
+    <section id="join_tutors" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Join Tutors</h2>
+        </div>
+
+        <div class="row gx-lg-0 gy-4">
+          <div class="col-lg-12">
+            <form action="{{route('tutors/insert')}}" method="post">
+              @csrf
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Full Name</label>
+                  <input type="text" class="form-control @error ('name')is-invalid @enderror" name="name" value="{{old('name')}}"  placeholder="Enter your Full Name">
+
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Father Name</label>
+                  <input type="text" class="form-control @error ('father_name')is-invalid @enderror" name="father_name" value="{{old('father_name')}}" placeholder="Enter your Father Name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Mother Name</label>
+                  <input type="text" class="form-control @error ('mother_name')is-invalid @enderror" name="mother_name" value="{{old('mother_name')}}"placeholder="Enter your Mother Name">
+                </div>
+                
+                <div class="row">
+                <div class="col-md-6 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Email</label>
+                   <input type="email" class="form-control @error ('email')is-invalid @enderror" value="{{old('email')}}" name="email" placeholder="Enter your Email">
+                 </div>
+                </div>
+                <div class="col-md-6 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Phone Number</label>
+                   <input type="email" class="form-control @error ('phone_num')is-invalid @enderror" name="phone_num" value="{{old('phone_num')}}" placeholder="Enter your phone number">
+                 </div>
+                </div>
+                
+              </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Nid No.</label>
+                  <input type="number" class="form-control @error ('nid_no')is-invalid @enderror" name="nid_no" id="exampleInputPassword1" value="{{old('nid_no')}}" placeholder="Enter your Nid No.">
+                </div>
+              <div class="row">
+                <div class="col-md-4 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Permanent Address</label>
+                   <input type="text" class="form-control @error ('permanent_address')is-invalid @enderror" name="permanent_address" value="{{old('permanent_address')}}" placeholder="Enter your Permanent Address">
+                 </div>
+                </div>
+                <div class="col-md-4 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Permanent Thana</label>
+                   <input type="text" class="form-control @error ('permanent_thana')is-invalid @enderror" name="permanent_thana" value="{{old('permanent_thana')}}" placeholder="Enter your Permanent Permanent Thana">
+                 </div>
+                </div>
+                <div class="col-md-4 form-group">
+                 <div class="col">
+                 <label for="exampleInputPassword1">Permanent District</label>
+                  <input type="text" class="form-control @error ('permanent_district')is-invalid @enderror" list="datalistOptions" name="permanent_district"  value="{{old('permanent_district')}}" placeholder="Enter your Permanent District">
+                  <datalist id="datalistOptions">
+                    @foreach($district_names as $value)
+                     <option value="{{$value->name}}">
+                    @endforeach
+                  </datalist>
+                 </div>
+                </div>
+                
+              </div>
+              <div class="row">
+                <div class="col-md-4 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Present Address</label>
+                   <input type="text" class="form-control @error ('present_address')is-invalid @enderror" name="present_address" value="{{old('present_address')}}" placeholder="Enter your Present Address">
+                 </div>
+                </div>
+                <div class="col-md-4 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Present Thana</label>
+                   <input type="text" class="form-control @error ('present_thana')is-invalid @enderror" name="present_thana" value="{{old('present_thana')}}" placeholder="Enter your Present Thana">
+                 </div>
+                </div>
+
+                <div class="col-md-4 form-group">
+                 <div class="col">
+                 <label for="exampleInputPassword1">Present District</label>
+                  <input type="text" class="form-control @error ('present_district')is-invalid @enderror" list="datalistOptions" name="present_district" value="{{old('present_district')}}" placeholder="Enter Present District">
+                  <datalist id="datalistOptions">
+                    @foreach($district_names as $value)
+                     <option value="{{$value->name}}">
+                    @endforeach
+                  </datalist>
+                 </div>
+                </div>
+                
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Gender</label>
+                   <input type="text" class="form-control @error ('gender')is-invalid @enderror" name="gender" value="{{old('gender')}}" placeholder="Enter Gender">
+                 </div>
+                </div>
+                <div class="col-md-6 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Date Of Birth</label>
+                   <input type="date" class="form-control @error ('date_of_birth')is-invalid @enderror" name="date_of_birth" value="{{old('date_of_birth')}}">
+                 </div>
+                </div>
+                
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Qualification</label>
+                   <input type="text" class="form-control @error ('qualification')is-invalid @enderror" name="qualification" value="{{old('qualification')}}" placeholder="Enter last qualified degree" >
+                 </div>
+                </div>
+                <div class="col-md-6 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Department</label>
+                   <input type="Department" class="form-control @error ('dept')is-invalid @enderror" name="dept" value="{{old('dept')}}" placeholder="Enter your Department Name">
+                 </div>
+                </div>
+                
+              </div>
+           
+              <div class="text-center" style="padding: 15px;">
+                <button type="submit" class="btn btn-info">Submit</button>
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+    </section>
   </main>
 
 

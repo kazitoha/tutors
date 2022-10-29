@@ -20,6 +20,8 @@ class CreateTutorsTable extends Migration
             $table->string('mother_name')->nullable();
             $table->string('present_address')->nullable();
             $table->string('permanent_address')->nullable();
+            $table->string('phone_num')->nullable();
+            $table->string('email')->nullable();
             $table->string('nid_no')->unique()->nullable();
             $table->string('date_of_birth')->nullable();
             $table->string('gender')->nullable();
