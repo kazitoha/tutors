@@ -16,7 +16,12 @@ class HomeController extends Controller
 {
     function home()
     {
-       $district_names=states::select('name')->get();
-       return view('fontend/home',compact('district_names'));
+       return view('fontend/home');
+    }
+    function districtList(){
+      $test="toha";
+      return response()->json($test);
+      // $district_names=states::select('name')->get();
+      // return response()->json($district_names);
     }
 }

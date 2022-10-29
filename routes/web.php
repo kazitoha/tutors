@@ -46,7 +46,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
 
                         //home
    Route::get('/', 'App\Http\Controllers\FontEnd_Controller\HomeController@home');
-   Route::post('tutors', 'App\Http\Controllers\FontEnd_Controller\TutorsController@tutorsInsert')->name('tutors/insert');
+   Route::get('distric', 'App\Http\Controllers\FontEnd_Controller\HomeController@districtList')->name('district.List');
+
+   Route::post('tutors', 'App\Http\Controllers\FontEnd_Controller\TutorsController@districtList')->name('tutors/insert');
 
 
                         // showing error page

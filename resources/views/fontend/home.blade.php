@@ -261,9 +261,9 @@
                  <label for="exampleInputPassword1">Permanent District</label>
                   <input type="text" class="form-control @error ('permanent_district')is-invalid @enderror" list="datalistOptions" name="permanent_district"  value="{{old('permanent_district')}}" placeholder="Enter your Permanent District">
                   <datalist id="datalistOptions">
-                    @foreach($district_names as $value)
-                     <option value="{{$value->name}}">
-                    @endforeach
+                    
+                     <option value="">
+                    
                   </datalist>
                  </div>
                 </div>
@@ -288,9 +288,9 @@
                  <label for="exampleInputPassword1">Present District</label>
                   <input type="text" class="form-control @error ('present_district')is-invalid @enderror" list="datalistOptions" name="present_district" value="{{old('present_district')}}" placeholder="Enter Present District">
                   <datalist id="datalistOptions">
-                    @foreach($district_names as $value)
-                     <option value="{{$value->name}}">
-                    @endforeach
+                   
+                     <option value="">
+                    
                   </datalist>
                  </div>
                 </div>
@@ -339,6 +339,31 @@
       </div>
     </section>
   </main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        districtList();
+     });
+
+
+    function districtList(e){
+      e.preventDefault();
+       $.ajax({
+        url:'{{route('district.List')}}',
+        type:'GET',
+        dataType:'json',
+        success:function(data){
+         console.log(data);
+          }
+        });
+     
+    }
+  </script>
 
 
 @endsection
