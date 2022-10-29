@@ -234,7 +234,7 @@
                 <div class="col-md-6 form-group">
                  <div class="col">
                    <label for="exampleInputPassword1">Phone Number</label>
-                   <input type="email" class="form-control @error ('phone_num')is-invalid @enderror" name="phone_num" value="{{old('phone_num')}}" placeholder="Enter your phone number">
+                   <input type="number" class="form-control @error ('phone_num')is-invalid @enderror" name="phone_num" value="{{old('phone_num')}}" placeholder="Enter your phone number">
                  </div>
                 </div>
                 

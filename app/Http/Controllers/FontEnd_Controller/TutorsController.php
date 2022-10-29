@@ -33,6 +33,7 @@ class TutorsController extends Controller
         'dept'              =>'required|string',
 
       ]);
+
        tutors::insert([
          'name'                =>$request->name,
          'father_name'         =>$request->father_name,
@@ -46,5 +47,7 @@ class TutorsController extends Controller
          'dept'                =>$request->dept,
          'created_at'          =>Carbon::now(),
         ]);
+
+       return back();
   }
 }
