@@ -13,7 +13,7 @@ class CreateDistrictsTable extends Migration
      */
     public function up()
     {
-        Schema::create('states', function (Blueprint $table) {
+        Schema::create('district', function (Blueprint $table) {
             $table->id();
             $table->string('nothing');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateDistrictsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('districts');
+        Schema::dropIfExists('district');
     }
 }

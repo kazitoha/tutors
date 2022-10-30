@@ -34,8 +34,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
    Route::post('tutors/insert','App\Http\Controllers\BackEnd_Controller\TutorsController@tutorsInsert');
 
    Route::get('tutors/list','App\Http\Controllers\BackEnd_Controller\TutorsController@tutorsList');
-   
-   
+
+
 });
 
     ///////////////////////////////////////////////////////////////////
@@ -46,23 +46,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
 
                         //home
    Route::get('/', 'App\Http\Controllers\FontEnd_Controller\HomeController@home');
-   Route::get('distric', 'App\Http\Controllers\FontEnd_Controller\HomeController@districtList')->name('district.List');
-
-   Route::post('tutors', 'App\Http\Controllers\FontEnd_Controller\TutorsController@districtList')->name('tutors/insert');
+   Route::post('tutors', 'App\Http\Controllers\FontEnd_Controller\TutorsController@tutorsInsert')->name('tutors.insert');
+   Route::get('distric', 'App\Http\Controllers\FontEnd_Controller\TutorsController@districtList')->name('district.List');
 
 
                         // showing error page
-   Route::get('/404', function () { return abort(404); });                     
-
-
-   
-                
-                   
-   
- 
-
-
-
-
-
-
+   Route::get('/404', function () { return abort(404); });

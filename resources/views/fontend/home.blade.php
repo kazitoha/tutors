@@ -109,7 +109,7 @@
                 </div>
               </div>
               <div class="row">
-                
+
               <div class="form-group mt-3">
                 <select class="form-select" aria-label="Default select example">
                       <option selected>Open this select menu</option>
@@ -128,7 +128,7 @@
 
       </div>
     </section>
-    
+
 
 
     <!-- ======= Tutors list  ======= -->
@@ -155,7 +155,7 @@
 
 
           @for($i=1; $i<=10; $i++)
-            
+
 
 
             <div class="col-xl-3 col-md-6 portfolio-item filter-app">
@@ -188,7 +188,7 @@
               </div>
             </div><!-- End Portfolio Item -->
 
-          
+
 
 
           @endfor
@@ -208,7 +208,7 @@
 
         <div class="row gx-lg-0 gy-4">
           <div class="col-lg-12">
-            <form action="{{route('tutors/insert')}}" method="post">
+            <form action="{{route('tutors.insert')}}" method="post">
               @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1">Full Name</label>
@@ -223,7 +223,7 @@
                   <label for="exampleInputPassword1">Mother Name</label>
                   <input type="text" class="form-control @error ('mother_name')is-invalid @enderror" name="mother_name" value="{{old('mother_name')}}"placeholder="Enter your Mother Name">
                 </div>
-                
+
                 <div class="row">
                 <div class="col-md-6 form-group">
                  <div class="col">
@@ -237,7 +237,7 @@
                    <input type="number" class="form-control @error ('phone_num')is-invalid @enderror" name="phone_num" value="{{old('phone_num')}}" placeholder="Enter your phone number">
                  </div>
                 </div>
-                
+
               </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Nid No.</label>
@@ -261,13 +261,13 @@
                  <label for="exampleInputPassword1">Permanent District</label>
                   <input type="text" class="form-control @error ('permanent_district')is-invalid @enderror" list="datalistOptions" name="permanent_district"  value="{{old('permanent_district')}}" placeholder="Enter your Permanent District">
                   <datalist id="datalistOptions">
-                    
+
                      <option value="">
-                    
+
                   </datalist>
                  </div>
                 </div>
-                
+
               </div>
               <div class="row">
                 <div class="col-md-4 form-group">
@@ -288,13 +288,13 @@
                  <label for="exampleInputPassword1">Present District</label>
                   <input type="text" class="form-control @error ('present_district')is-invalid @enderror" list="datalistOptions" name="present_district" value="{{old('present_district')}}" placeholder="Enter Present District">
                   <datalist id="datalistOptions">
-                   
-                     <option value="">
-                    
+
+                     <!-- <option value=""> -->
+
                   </datalist>
                  </div>
                 </div>
-                
+
               </div>
 
               <div class="row">
@@ -310,7 +310,7 @@
                    <input type="date" class="form-control @error ('date_of_birth')is-invalid @enderror" name="date_of_birth" value="{{old('date_of_birth')}}">
                  </div>
                 </div>
-                
+
               </div>
               <div class="row">
                 <div class="col-md-6 form-group">
@@ -325,9 +325,9 @@
                    <input type="Department" class="form-control @error ('dept')is-invalid @enderror" name="dept" value="{{old('dept')}}" placeholder="Enter your Department Name">
                  </div>
                 </div>
-                
+
               </div>
-           
+
               <div class="text-center" style="padding: 15px;">
                 <button type="submit" class="btn btn-info">Submit</button>
               </div>
@@ -350,19 +350,22 @@
         districtList();
      });
 
-
-    function districtList(e){
-      e.preventDefault();
+     function districtList(){
        $.ajax({
-        url:'{{route('district.List')}}',
-        type:'GET',
-        dataType:'json',
-        success:function(data){
-         console.log(data);
-          }
-        });
-     
-    }
+         url:'{{route('district.List')}}',
+         type:'GET',
+         dataType:'json',
+         success:function(data){
+           let html='';
+             data.forEach(function(district){
+                let area=`<option value="${district.name}">`
+                html+=area;
+             })
+             $('#datalistOptions').html(html);
+         }
+       })
+     }
+
   </script>
 
 

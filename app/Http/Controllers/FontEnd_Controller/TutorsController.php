@@ -50,4 +50,10 @@ class TutorsController extends Controller
 
        return back();
   }
+
+  function districtList(){
+       $data=district::all();
+       return $data;
+
+  }
 }
