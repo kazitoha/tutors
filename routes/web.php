@@ -50,5 +50,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
    Route::get('distric', 'App\Http\Controllers\FontEnd_Controller\TutorsController@districtList')->name('district.List');
 
 
+   // user login part
+   Route::get('login', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@login')->name('user.login');
+
+
                         // showing error page
    Route::get('/404', function () { return abort(404); });

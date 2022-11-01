@@ -18,10 +18,4 @@ class HomeController extends Controller
     {
        return view('fontend/home');
     }
-    function districtList(){
-       $data=district::all();
-      return response()->json($test);
-      // $district_names=states::select('name')->get();
-      // return response()->json($district_names);
-    }
 }

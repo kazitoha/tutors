@@ -66,7 +66,7 @@
           <li><a href="#hero">Home</a></li>
           <li><a href="#search_tutors">SEARCH TUTORS</a></li>
           <li><a href="#join_tutors">Join Tutors</a></li>
-          <li><a href="#search_tutors" class="btn btn-outline-danger  btn-sm">Login</a></li>
+          <li><a href="{{route('user.login')}}" class="btn btn-outline-danger  btn-sm">Login</a></li>
 
         </ul>
       </nav><!-- .navbar -->
