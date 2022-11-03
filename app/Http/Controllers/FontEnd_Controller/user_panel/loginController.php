@@ -9,10 +9,14 @@ class loginController extends Controller
 {
     function login(){
 
-       return view('fontend/fontend_login');
+       return view('fontend/user_panel/fontend_user_login');
     }
 
-    function loginpassword_math(){
-        echo "match";
+    function loginDashboard(Request $request){
+        $request->validate([
+            'email'    =>'required|string',
+            'password' =>'required|string',
+        ]);
+
     }
 }

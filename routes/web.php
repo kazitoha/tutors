@@ -52,6 +52,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
 
    // user login part
    Route::get('login', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@login')->name('user.login');
+   Route::get('log/in', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginDashboard')->name('login.dashboard');
+
+
+   // register
+   Route::get('register', 'App\Http\Controllers\FontEnd_Controller\user_panel\registerUserController@register')->name('user.register');
+   Route::get('register/insert', 'App\Http\Controllers\FontEnd_Controller\user_panel\registerUserController@registerInsert')->name('user.register.insert');
+
    // tutor join
    Route::post('tutors/join', 'App\Http\Controllers\FontEnd_Controller\TutorsController@joinTutors')->name('join.tutors');
 

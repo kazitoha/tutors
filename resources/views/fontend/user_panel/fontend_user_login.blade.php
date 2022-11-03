@@ -1,9 +1,9 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Login 01</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@extends('fontend/fontend_master')
+
+
+@section('fontend_main')
+
+
 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
@@ -11,8 +11,6 @@
   
   <link rel="stylesheet" href="{{asset('public/fontend_asset/login/css/style.css')}}">
 
-  </head>
-  <body>
   <section class="ftco-section">
     <div class="container">
       <div class="row justify-content-center">
@@ -21,13 +19,14 @@
             <div class="icon d-flex align-items-center justify-content-center">
               <span class="fa fa-user-o"></span>
             </div>
+
             <h3 class="text-center mb-4">Sign In</h3>
-            <form action="#" class="login-form">
+            <form action="{{route('login.dashboard')}}" class="login-form">
               <div class="form-group">
-                <input type="text" class="form-control rounded-left" placeholder="Username" required>
+                <input type="text" class="form-control rounded-left" placeholder="Email" name="email" required>
               </div>
               <div class="form-group d-flex">
-                <input type="password" class="form-control rounded-left" placeholder="Password" required>
+                <input type="password" class="form-control rounded-left" name="password" placeholder="Password" required>
               </div>
               <div class="form-group">
                 <button type="submit" class="form-control btn btn-info rounded submit px-3">Login</button>
@@ -43,7 +42,5 @@
   <script src="{{asset('public/fontend_asset/js/popper.js')}}"></script>
   <script src="{{asset('public/fontend_asset/js/bootstrap.min.js')}}"></script>
   <script src="{{asset('public/fontend_asset/js/main.js')}}"></script>
-
-  </body>
-</html>
+@endsection
 

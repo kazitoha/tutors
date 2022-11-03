@@ -63,10 +63,11 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
+          <li><a href="{{url('/')}}">Home</a></li>
           <li><a href="#search_tutors">SEARCH TUTORS</a></li>
           <li><a href="#join_tutors">Join Tutors</a></li>
           <li><a href="{{route('user.login')}}" class="btn btn-outline-danger  btn-sm">Login</a></li>
+          <li><a href="{{route('user.register')}}" class="btn btn-outline-danger  btn-sm">Register</a></li>
 
         </ul>
       </nav><!-- .navbar -->
