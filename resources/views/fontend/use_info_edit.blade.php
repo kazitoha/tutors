@@ -215,7 +215,14 @@
                   <input type="text" class="form-control @error ('name')is-invalid @enderror" name="name" value="{{old('name')}}"  placeholder="Enter your Full Name">
 
                 </div>
-                
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Father Name</label>
+                  <input type="text" class="form-control @error ('father_name')is-invalid @enderror" name="father_name" value="{{old('father_name')}}" placeholder="Enter your Father Name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Mother Name</label>
+                  <input type="text" class="form-control @error ('mother_name')is-invalid @enderror" name="mother_name" value="{{old('mother_name')}}"placeholder="Enter your Mother Name">
+                </div>
 
                 <div class="row">
                 <div class="col-md-6 form-group">
@@ -230,7 +237,36 @@
                    <input type="number" class="form-control @error ('phone_num')is-invalid @enderror" name="phone_num" value="{{old('phone_num')}}" placeholder="Enter your phone number">
                  </div>
                 </div>
+
               </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Nid No.</label>
+                  <input type="number" class="form-control @error ('nid_no')is-invalid @enderror" name="nid_no" id="exampleInputPassword1" value="{{old('nid_no')}}" placeholder="Enter your Nid No.">
+                </div>
+              <div class="row">
+                <div class="col-md-4 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Permanent Address</label>
+                   <input type="text" class="form-control @error ('permanent_address')is-invalid @enderror" name="permanent_address" value="{{old('permanent_address')}}" placeholder="Enter your Permanent Address">
+                 </div>
+                </div>
+                <div class="col-md-4 form-group">
+                 <div class="col">
+                   <label for="exampleInputPassword1">Permanent Thana</label>
+                   <input type="text" class="form-control @error ('permanent_thana')is-invalid @enderror" name="permanent_thana" value="{{old('permanent_thana')}}" placeholder="Enter your Permanent Permanent Thana">
+                 </div>
+                </div>
+                <div class="col-md-4 form-group">
+                 <div class="col">
+                 <label for="exampleInputPassword1">Permanent District</label>
+                  <input type="text" class="form-control @error ('permanent_district')is-invalid @enderror" list="datalistOptions" name="permanent_district"  value="{{old('permanent_district')}}" placeholder="Enter your Permanent District">
+                  <datalist id="datalistOptions">
+
+                     <option value="">
+
+                  </datalist>
+                 </div>
+                </div>
 
               </div>
               <div class="row">

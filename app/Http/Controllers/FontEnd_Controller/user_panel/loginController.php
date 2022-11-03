@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class loginController extends Controller
 {
     function login(){
-        echo "toha";
+
+       return view('fontend/fontend_login');
+    }
+
+    function loginpassword_math(){
+        echo "match";
     }
 }

@@ -52,6 +52,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
 
    // user login part
    Route::get('login', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@login')->name('user.login');
+   // tutor join
+   Route::post('tutors/join', 'App\Http\Controllers\FontEnd_Controller\TutorsController@joinTutors')->name('join.tutors');
 
 
                         // showing error page
