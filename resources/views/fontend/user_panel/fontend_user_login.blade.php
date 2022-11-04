@@ -21,12 +21,25 @@
             </div>
 
             <h3 class="text-center mb-4">Sign In</h3>
-            <form action="{{route('login.dashboard')}}" class="login-form">
+            @if($errors->all())
+            <div class="card">
+              <div class="card-header">
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                      <li>{{$error}}</li>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
+              <br>
+            @endif
+            <form action="{{route('login.credentials')}}" class="login-form" method="post" novalidate>
+              @csrf
               <div class="form-group">
-                <input type="text" class="form-control rounded-left" placeholder="Email" name="email" required>
+                <input type="text" class="form-control rounded-left @error ('email')is-invalid @enderror" placeholder="Email" name="email" required>
               </div>
               <div class="form-group d-flex">
-                <input type="password" class="form-control rounded-left" name="password" placeholder="Password" required>
+                <input type="password" class="form-control rounded-left @error ('password')is-invalid @enderror" name="password" placeholder="Password" required>
               </div>
               <div class="form-group">
                 <button type="submit" class="form-control btn btn-info rounded submit px-3">Login</button>

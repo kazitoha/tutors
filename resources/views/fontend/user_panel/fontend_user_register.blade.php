@@ -20,20 +20,15 @@
               <span class="fa fa-user-o"></span>
             </div>
             <h3 class="text-center mb-4">Sign Up</h3>
-            <form action="{{route('user.register.insert')}}" class="login-form" novalidate>
-               <!-- showing error -->
+            <!-- showing error -->
                 @if ($errors->all())
-                  <div class="card">
-                    <div class="card-header">
-                      <div class="alert alert-danger">
-                      @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                      @endforeach
-                      </div>
-                    </div>
-                  </div>
+                  @foreach ($errors->all() as $error)
+                      <li class="alert alert-danger">{{ $error }}</li>
+                  @endforeach
                 @endif
              <!--end showing error -->
+            <form action="{{route('user.register.insert')}}" class="login-form" novalidate>
+               
               <div class="form-group">
                 <label>Full name</label>
                 <input type="text" class="form-control rounded-left  @error ('name')is-invalid @enderror" placeholder="Full name" name="name" value="{{old('name')}}" required>

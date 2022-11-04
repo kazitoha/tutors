@@ -21,7 +21,7 @@ class registerUserController extends Controller
     function registerInsert(Request $request){
        $request->validate([
         'name'              =>'required|string',
-        'email'             =>'required|string',
+        'email'             =>'required|string|unique:tutors',
         'phone_num'         =>'required|integer|min:11',
         'password'          =>'required|min:8',
         'confirm_password'  =>'required|min:8|same:password',

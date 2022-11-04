@@ -50,14 +50,19 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
    Route::get('distric', 'App\Http\Controllers\FontEnd_Controller\TutorsController@districtList')->name('district.List');
 
 
-   // user login part
-   Route::get('login', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@login')->name('user.login');
-   Route::get('log/in', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginDashboard')->name('login.dashboard');
+
 
 
    // register
    Route::get('register', 'App\Http\Controllers\FontEnd_Controller\user_panel\registerUserController@register')->name('user.register');
    Route::get('register/insert', 'App\Http\Controllers\FontEnd_Controller\user_panel\registerUserController@registerInsert')->name('user.register.insert');
+
+
+      // user login part
+   Route::get('login', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@login')->name('user.login');
+   Route::post('log/in', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginCredential')->name('login.credentials');
+
+   Route::get('user/dashboard', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginDashboard')->name('user.dashboard');
 
    // tutor join
    Route::post('tutors/join', 'App\Http\Controllers\FontEnd_Controller\TutorsController@joinTutors')->name('join.tutors');
