@@ -32,11 +32,14 @@ class loginController extends Controller
          foreach ($tutors_data as $value) 
          {  $user_id=$value->id;
             $user_name=$value->name;
+            $user_email=$value->email;
+            $user_phone=$value->phone_num;
             $db_password=Crypt::decryptString($value->password);
          }
          if($db_password == $panel_pass)
          {
            $login_session=Session()->put('user_id',$user_id);
+           $login_session=Session()->put('user_data',$tutors_data);
            return redirect()->intended('user/dashboard')->withSuccess('userLogin','You are login now.');
          }
        }
@@ -47,5 +50,6 @@ class loginController extends Controller
         if(session('user_id')){
             return view('fontend/user_panel/user_profile');
         }
+        return redirect('login')->withSuccess('Oppes! You have entered invalid credentials.');
     }
 }
