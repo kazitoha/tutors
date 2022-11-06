@@ -39,5 +39,12 @@ class registerUserController extends Controller
    return view('fontend/user_panel/fontend_user_login')->with('success_msg','Register Success');
   }
 
+  function userEdit(){
+
+    return view('fontend/user_panel/user_edit');
+
+
+  }
+
 
 }

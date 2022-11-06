@@ -46,10 +46,12 @@ class loginController extends Controller
         return redirect('login')->withSuccess('Oppes! You have entered invalid credentials.');
     }
 
-    function loginDashboard(){
-        if(session('user_id')){
-            return view('fontend/user_panel/user_profile');
-        }
+    function loginDashboard()
+    {
+        return view('fontend/user_panel/user_profile');
+    }
+    function logOut(){
+        Session::forget('user_id');
         return redirect('login')->withSuccess('Oppes! You have entered invalid credentials.');
     }
 }

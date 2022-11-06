@@ -49,92 +49,73 @@
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{$value->name}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Full Name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Full Name" value="{{$value->name}}">
+                      
                     </div>
                   </div>
-                  
-                  <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Father Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{$value->father_name}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Father Name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->father_name}}" aria-describedby="emailHelp" placeholder="Enter Father Name">
+                     
                     </div>
                   </div>
-                  <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Mother Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{$value->mother_name}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Mother Name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->mother_name}}" aria-describedby="emailHelp" placeholder="Enter Mother Name">
+                     
                     </div>
                   </div>
-                  <hr>
-                  
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{$value->email}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" value="{{$value->email}}" aria-describedby="emailHelp" placeholder="Enter Email">
+                     
                     </div>
                   </div>
-                  <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{$value->phone_num}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Phone</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->phone_num}}" aria-describedby="emailHelp" placeholder="Enter Phone">
+                     
                     </div>
                   </div>
-                  <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Present Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{$value->present_address}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Present Address</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->present_address}}" aria-describedby="emailHelp" placeholder="Enter Present Address">
+                     
                     </div>
                   </div>
-                  <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Permanent Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{$value->permanent_address}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Permanent Address</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->permanent_address}}" aria-describedby="emailHelp" placeholder="Enter Permanent Address">
+                     
                     </div>
                   </div>
-                  <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Nid No</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{$value->nid_no }}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Nid No</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->nid_no}}" aria-describedby="emailHelp" placeholder="Enter Nid No">
+                     
                     </div>
                   </div>
-                  <hr>
                   <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Date of birth</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{$value->date_of_birth}}
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Date of birth</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->date_of_birth}}" aria-describedby="emailHelp" placeholder="Enter Date of birth">
+                     
                     </div>
                   </div>
-                  <hr>
+                  <br>
                  @endforeach
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="{{route('user.edit')}}">Edit</a>
+                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Update</a>
                     </div>
                   </div>
                 </div>

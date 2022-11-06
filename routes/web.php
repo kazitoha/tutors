@@ -58,14 +58,22 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
    Route::get('register/insert', 'App\Http\Controllers\FontEnd_Controller\user_panel\registerUserController@registerInsert')->name('user.register.insert');
 
 
-      // user login part
+       // user login part
    Route::get('login', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@login')->name('user.login');
-   Route::post('log/in', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginCredential')->name('login.credentials');
+   Route::post('log/in', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginCredential')->name('login.credentials'); 
+
+  Route::middleware(['login.session'])->group(function () {
 
    Route::get('user/dashboard', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginDashboard')->name('user.dashboard');
+   Route::get('user/edit', 'App\Http\Controllers\FontEnd_Controller\user_panel\registerUserController@userEdit')->name('user.edit');
+    
+});
+
+
+   Route::get('logout', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@logOut')->name('log.out');
 
    // tutor join
-   Route::post('tutors/join', 'App\Http\Controllers\FontEnd_Controller\TutorsController@joinTutors')->name('join.tutors');
+   Route::post('tutors/join', 'App\Http\Controllers\FontEnd_Controller\TutorsController@joinTutors')->name('join.tutors'); 
 
 
                         // showing error page

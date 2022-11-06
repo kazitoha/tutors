@@ -21,7 +21,7 @@ class TutorsController extends Controller
         'email'             =>'required|string',
         'phone_num'         =>'required|string',
         'present_address'   =>'required|string',
-        'present_thana'   =>'required|string',
+        'present_thana'     =>'required|string',
         'present_district'  =>'required|string',
         'permanent_address' =>'required|string',
         'permanent_thana'   =>'required|string',

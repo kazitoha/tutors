@@ -76,6 +76,7 @@
           <li><a href="{{route('user.register')}}" class="btn btn-outline-danger  btn-sm">Register</a></li>
           @else(session('user_data'))
            <li><a href="{{url('user/dashboard')}}" class="btn btn-outline-danger">Profile</a></li>   
+           <li><a href="{{route('log.out')}}" class="btn btn-outline-danger">Logout</a></li>   
 
           @endif
         </ul>
