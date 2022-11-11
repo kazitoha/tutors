@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\MyController;
-
 
 
 /*
@@ -44,6 +42,23 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
     ///////////////////////////////////////////////////////////////////
 
 
+
+Route::middleware(['login.session'])
+ ->as('user.')
+ ->group(function () {
+
+   Route::get('user/dashboard', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginDashboard')->name('dashboard');
+
+   Route::get('user/edit', 'App\Http\Controllers\FontEnd_Controller\user_panel\registerUserController@userEdit')->name('edit');
+   Route::post('user/update', 'App\Http\Controllers\FontEnd_Controller\user_panel\registerUserController@update')->name('update');
+
+   Route::get('logout', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@logOut')->name('log.out');
+    
+});
+
+
+
+
                         //home
    Route::get('/', 'App\Http\Controllers\FontEnd_Controller\HomeController@home');
    Route::post('tutors', 'App\Http\Controllers\FontEnd_Controller\TutorsController@tutorsInsert')->name('tutors.insert');
@@ -62,18 +77,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ()
    Route::get('login', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@login')->name('user.login');
    Route::post('log/in', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginCredential')->name('login.credentials'); 
 
-  Route::middleware(['login.session'])->group(function () {
-
-   Route::get('user/dashboard', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@loginDashboard')->name('user.dashboard');
-   Route::get('user/edit', 'App\Http\Controllers\FontEnd_Controller\user_panel\registerUserController@userEdit')->name('user.edit');
-    
-});
+ 
 
 
-   Route::get('logout', 'App\Http\Controllers\FontEnd_Controller\user_panel\loginController@logOut')->name('log.out');
 
    // tutor join
-   Route::post('tutors/join', 'App\Http\Controllers\FontEnd_Controller\TutorsController@joinTutors')->name('join.tutors'); 
+   Route::post('tutors/join', 'App\Http\Controllers\FontEnd_Controller\TutorsController@joinTutors')->name('join.tutors');
 
 
                         // showing error page

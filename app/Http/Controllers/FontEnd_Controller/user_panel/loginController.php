@@ -48,7 +48,9 @@ class loginController extends Controller
 
     function loginDashboard()
     {
-        return view('fontend/user_panel/user_profile');
+        $id=Session('user_data');
+        $user_data=tutors::find($id[0]['id']);
+        return view('fontend/user_panel/user_profile',compact('user_data'));
     }
     function logOut(){
         Session::forget('user_id');

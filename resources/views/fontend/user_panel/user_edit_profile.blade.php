@@ -24,7 +24,10 @@
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4>{{session('user_name')}}</h4>
-                      <button class="btn btn-primary">Upload Image</button>
+                      <label for="file-upload" class="btn btn-primary">Upload</label>
+                       <div hidden>
+                         <input id="file-upload"  type="file"/>
+                       </div>
                     </div>
                   </div>
                 </div>
@@ -43,83 +46,87 @@
               $url=Route::current()->uri;
             @endphp
 
-            @foreach(session('user_data') as $value)
 
             <div class="col-md-8">
               <div class="card mb-3">
+
+                <form action="{{route('user.update')}}" method="post">
+                  @csrf
                 <div class="card-body">
                   <div class="row">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Full Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Full Name" value="{{$value->name}}">
+                      <input type="text" class="form-control @error ('name')is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Full Name"  value="{{$user_data->name}}" name="name">
                       
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Father Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->father_name}}" aria-describedby="emailHelp" placeholder="Enter Father Name">
+                      <input type="text" class="form-control @error ('father_name')is-invalid @enderror" id="exampleInputEmail1" value="{{$user_data->father_name}}" aria-describedby="emailHelp" placeholder="Enter Father Name" name="father_name">
                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Mother Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->mother_name}}" aria-describedby="emailHelp" placeholder="Enter Mother Name">
+                      <input type="text" class="form-control @error ('mother_name')is-invalid @enderror" id="exampleInputEmail1" value="{{$user_data->mother_name}}" aria-describedby="emailHelp" placeholder="Enter Mother Name" name="mother_name">
                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Email</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" value="{{$value->email}}" aria-describedby="emailHelp" placeholder="Enter Email">
+                      <input type="email" class="form-control @error ('email')is-invalid @enderror" id="exampleInputEmail1" value="{{$user_data->email}}" aria-describedby="emailHelp" placeholder="Enter Email" name="email">
                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Phone</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->phone_num}}" aria-describedby="emailHelp" placeholder="Enter Phone">
+                      <input type="text" class="form-control @error ('phone_num')is-invalid @enderror" id="exampleInputEmail1" value="{{$user_data->phone_num}}" aria-describedby="emailHelp" placeholder="Enter Phone" name="phone_num">
                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Present Address</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->present_address}}" aria-describedby="emailHelp" placeholder="Enter Present Address">
+                      <input type="text" class="form-control @error ('present_address')is-invalid @enderror" id="exampleInputEmail1" value="{{$user_data->present_address}}" aria-describedby="emailHelp" placeholder="Enter Present Address" name="present_address">
                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Permanent Address</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->permanent_address}}" aria-describedby="emailHelp" placeholder="Enter Permanent Address">
+                      <input type="text" class="form-control @error ('permanent_address')is-invalid @enderror" id="exampleInputEmail1" value="{{$user_data->permanent_address}}" aria-describedby="emailHelp" placeholder="Enter Permanent Address" name="permanent_address">
                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nid No</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->nid_no}}" aria-describedby="emailHelp" placeholder="Enter Nid No">
+                      <input type="text" class="form-control @error ('nid_no')is-invalid @enderror" id="exampleInputEmail1" value="{{$user_data->nid_no}}" aria-describedby="emailHelp" placeholder="Enter Nid No" name="nid_no">
                      
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Date of birth</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" value="{{$value->date_of_birth}}" aria-describedby="emailHelp" placeholder="Enter Date of birth">
+                      <input type="date" class="form-control @error ('date_of_birth')is-invalid @enderror" id="exampleInputEmail1" value="{{$user_data->date_of_birth}}" aria-describedby="emailHelp" placeholder="Enter Date of birth" name="date_of_birth">
                      
                     </div>
                   </div>
                   <br>
-                 @endforeach
+                
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Update</a>
+                      <button class="btn btn-info " target="__blank" type="submit">Update</button>
                     </div>
                   </div>
                 </div>
               </div>
+
+            </form>
 
             
 
